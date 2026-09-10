@@ -1,0 +1,10 @@
+/bin/
+/models/
+/benchmarks/
+/.cuda/
+/.install-venv/
+*.log
+*.pid
+.env
+.transcription-speed.json
+README.txt
