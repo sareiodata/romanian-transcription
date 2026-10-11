@@ -39,5 +39,6 @@ download_model() {
 }
 download_model 'https://huggingface.co/cstr/canary-1b-v2-GGUF/resolve/f4a12db73daa964aa56a188826682f6b11fdc960/canary-1b-v2-q8_0.gguf' canary-1b-v2-q8_0.gguf
 download_model 'https://huggingface.co/cstr/wespeaker-resnet34-lm-GGUF/resolve/main/wespeaker-resnet34-lm.gguf' wespeaker-resnet34-lm.gguf
+download_model 'https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.bin' ggml-tiny.bin
 node -e 'console.log("Ready:", require(process.argv[1]).selectRuntime().label)' "$root/runtime.js"
 echo 'Start: ./start.sh  |  Web: http://localhost:8124'
