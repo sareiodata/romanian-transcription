@@ -49,6 +49,17 @@ Stop services before reinstalling dependencies.
 
 Tests (no model downloads required): `node --test tests/*.test.js`.
 
+## Start on boot (systemd)
+
+```bash
+./service_start.sh --install      # asks for sudo, enables the service for every boot
+sudo systemctl start romanian-transcription.service   # start now without rebooting
+```
+
+The service runs `start.sh` as the repository owner after the network is up and
+`stop.sh` on shutdown. Remove it with `./service_start.sh --uninstall`.
+`systemctl status romanian-transcription` shows service state.
+
 Dependencies have their own licenses:
 [CrispASR](https://github.com/CrispStrobe/CrispASR),
 [Canary](https://huggingface.co/cstr/canary-1b-v2-GGUF),
