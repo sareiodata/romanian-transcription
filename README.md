@@ -52,13 +52,16 @@ Tests (no model downloads required): `node --test tests/*.test.js`.
 ## Start on boot (systemd)
 
 ```bash
-./service_start.sh --install      # asks for sudo, enables the service for every boot
-sudo systemctl start romanian-transcription.service   # start now without rebooting
+./service_start.sh --install      # asks for sudo; enables and starts the service
+./service_start.sh --status       # same as: systemctl status romanian-transcription
 ```
 
-The service runs `start.sh` as the repository owner after the network is up and
-`stop.sh` on shutdown. Remove it with `./service_start.sh --uninstall`.
-`systemctl status romanian-transcription` shows service state.
+The service runs `start.sh` as the repository owner after the network is up,
+keeps supervising both processes (a crashed one is restarted within seconds),
+and runs `stop.sh` on shutdown. Control it with
+`sudo systemctl stop|start|restart romanian-transcription`
+(or `sudo service romanian-transcription status` - name first, then action).
+Remove it with `./service_start.sh --uninstall`.
 
 Dependencies have their own licenses:
 [CrispASR](https://github.com/CrispStrobe/CrispASR),
